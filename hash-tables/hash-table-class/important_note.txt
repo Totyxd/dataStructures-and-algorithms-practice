@@ -1,0 +1,3 @@
+This is only a simplistic version of a hash table class. Insert/update method is reductionist and does not work
+in the fashion of a normal hash table. Node per bucket has maximum of 2. For a realistic implementation, go to the
+hash-tables-implementation directory.
