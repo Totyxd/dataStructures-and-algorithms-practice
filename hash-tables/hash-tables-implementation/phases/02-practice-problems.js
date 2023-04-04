@@ -89,12 +89,7 @@ function wordPattern(pattern, words) {
   }
 
   return true;
-}
-
-
-
-
-
+};
 
 
 

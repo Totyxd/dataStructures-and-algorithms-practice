@@ -148,14 +148,5 @@ class HashTable { // get O(1), set O(1), deleteKey O(1)
   };
 };
 
-let hashTable = new HashTable(2);
-
-hashTable.insert("key1", "value1");
-hashTable.insert("key2", "value2");
-hashTable.insert("key3", "value3");
-hashTable.resize();
-console.log(hashTable);
-
-
 
 module.exports = HashTable;
