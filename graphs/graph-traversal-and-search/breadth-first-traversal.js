@@ -7,6 +7,7 @@ const adjList = {
   6: [4]
 };
 
+
 function printBreadthFirst(start) {
     let queue = [start];
     let visited = new Set();
@@ -68,3 +69,36 @@ console.log("Second Test:");
 console.log(breadthFirstSearch(4, 1)); // -> true
 console.log("Third Test:");
 console.log(breadthFirstSearch(6, 1)); // -> false
+
+
+function aShortestPath(start, end) {
+    let queue = [[start]];
+    let visited = new Set();
+    visited.add(start);
+
+    while (queue.length > 0) {
+        const currentPath = queue.shift();
+        const currentNode = currentPath[currentPath.length - 1];
+        const list = adjList[currentNode];
+
+        for (let i = 0; i < list.length; i++) {
+            if (currentNode === end) {
+                return currentPath;
+            };
+
+            if (!visited.has(list[i])) {
+                queue.push(currentPath.concat([list[i]]));          //NEVER MODIFY the current path!!
+                visited.add(list[i]);
+            };
+        };
+    };
+
+    return false;
+};
+
+  console.log("First Test:");
+  console.log(aShortestPath(1, 3)); // -> [ 1, 2, 3 ] (One possible solution)
+  console.log("Second Test:");
+  console.log(aShortestPath(4, 1)); // -> [ 4, 5, 1 ] (One possible solution)
+  console.log("Third Test:");
+  console.log(aShortestPath(6, 1)); // -> [ 6, 4, 5, 1 ]
